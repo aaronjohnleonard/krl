@@ -1,0 +1,15 @@
+https://foursquare.com/oauth2/authenticate?client_id=UXJ5BQM1GVYBMCNUQJQETTH1M33ANPRZO3MTRWTLXPRVZULL&response_type=code&redirect_uri=https://www.windley.org
+
+code=2FBIWXI1V0KPSDVFBC4W40KFDD3Y10HRILWLGXPG2NJTSMOR
+This is the code to get an access token. It was given in the URL that the user was redirected to
+
+https://foursquare.com/oauth2/access_token?client_id=UXJ5BQM1GVYBMCNUQJQETTH1M33ANPRZO3MTRWTLXPRVZULL&client_secret=NRGRJZSRKM1Y1ZMXMNAOWLBFCWFHSARCHL0LYCI4VDW4NQFF&grant_type=authorization_code&redirect_uri=https://www.windley.org&code=2FBIWXI1V0KPSDVFBC4W40KFDD3Y10HRILWLGXPG2NJTSMOR
+              
+{"access_token":"0OA3MUJ5IPOOYTRS40OJMDLEHRYHZTYTLJL4VTWCQQ0VYDHX"}
+
+push access
+you can send test pushes
+use requestb.in 
+
+
+https://dry-anchorage-9469.herokuapp.com/app/authorize?code=QFNMBEVJUGH3LRLQ1TEHVHSU3XVE13TSAJYGJH3DOOZH2E0I#_=_
