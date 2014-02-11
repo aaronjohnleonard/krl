@@ -9,7 +9,7 @@ ruleset HelloWorldApp {
   rule notify2{
     select when pageview ".*" setting ()
     pre { 
-        hello  = ( page:url("query") == " ") => page:url("query") | "Monkey";
+        hello  = ( page:url("query") == null) => page:url("query") | "Monkey";
     }
     {
         notify("notification", hello) with sticky=true;
