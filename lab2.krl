@@ -8,8 +8,8 @@ ruleset HelloWorldApp {
   }
   rule notify2{
     select when pageview ".*" setting ()
-    pre { 
-        ( page:url("query") == "value=hello") => hello=page:url("query") | hello="Monkey";
+    pre {
+      name = page:url("query") => page:url("query") | "Monkey";
     }
     {
         notify("notification", hello) with sticky=true;
