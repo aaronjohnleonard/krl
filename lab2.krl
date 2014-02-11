@@ -1,3 +1,4 @@
+
 ruleset HelloWorldApp {
   meta {
   }
@@ -7,9 +8,12 @@ ruleset HelloWorldApp {
   }
   rule notify2{
     select when pageview ".*" setting ()
-    pre { }
+    pre { 
+        hello  = << Hello >>;
+    }
     {
-        notify("notification","hello")
+        notify("notification",hello);
     }
   }
 }
+
