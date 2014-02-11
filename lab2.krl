@@ -12,7 +12,7 @@ ruleset HelloWorldApp {
         hello  = page:url("query")
     }
     {
-        notify("notification",hello);
+        notify("notification",hello) with sticky=true;
     }
   }
 }
