@@ -9,11 +9,10 @@ ruleset HelloWorldApp {
   rule notify2{
     select when pageview ".*" setting ()
     pre { 
-        hello  = << Hello >>;
+        hello  = page:url("domain")
     }
     {
-        notify("notification",hello) with sticky=true;
+        notify("notification",hello);
     }
   }
 }
-
