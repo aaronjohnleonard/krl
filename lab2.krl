@@ -9,6 +9,6 @@ ruleset Lab2 {
         select when pageview ".*" setting ()
         // Display notification that will not fade.
         notify("Notification", "Here is your notification.") with sticky = true;
-        //notify("Notification..", "Another notification??") with sticky = true;
+        notify("Notification..", "Another notification??") with sticky = true;
     }
 }
