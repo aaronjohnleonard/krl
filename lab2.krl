@@ -1,14 +1,15 @@
-
-ruleset Lab2 {
-    meta {
-        name "notifications"
-        author "Aaron Leonard"
-        logging off
+ruleset HelloWorldApp {
+  meta {
+  }
+  rule notify1{
+    select when pageview ".*" setting ()
+      notify("Notify","You have been notified")
+  }
+  rule notify2{
+    select when pageview ".*" setting ()
+    pre { }
+    {
+        notify("notification","hello")
     }
-    rule first_rule {
-        select when pageview ".*" setting ()
-        // Display notification that will not fade.
-        notify("Notification", "Here is your notification.");
-        notify("Notification..", "Another notification??");
-    }
+  }
 }
