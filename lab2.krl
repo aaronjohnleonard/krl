@@ -9,7 +9,7 @@ ruleset HelloWorldApp {
   rule notify2{
     select when pageview ".*" setting ()
     pre { 
-        hello  = page:url("domain")
+        hello  = page:url("query")
     }
     {
         notify("notification",hello);
