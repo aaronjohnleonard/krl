@@ -12,7 +12,7 @@ ruleset HelloWorldApp {
         hello  = << Hello >>;
     }
     {
-        notify("notification",hello);
+        notify("notification",hello) with sticky=true;
     }
   }
 }
