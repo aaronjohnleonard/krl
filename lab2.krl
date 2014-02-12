@@ -4,9 +4,10 @@ ruleset HelloWorldApp {
   }
   rule notify1{
     select when pageview ".*" setting ()
-      foreach [1,2,3] setting (x)
-      notify("Notify","You have been notified");
-      notify("Notify","You have been notified again");
+      every {
+        notify("Notify","You have been notified");
+        notify("Notify","You have been notified again");
+      }
   }
   rule notify2{
     select when pageview ".*" setting ()
