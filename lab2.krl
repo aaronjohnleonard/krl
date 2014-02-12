@@ -11,12 +11,10 @@ ruleset HelloWorldApp {
   }
   rule notify2{
     select when pageview ".*" setting ()
-    pre {
-      name = page:url("query") => page:url("query") | "Monkey";
-      names = name.split(re/&/);
-    }
+    foreach page:url("query").split(re/&/) setting (name)
+
     {
-        notify("notification", "hello " + names) with sticky=true;
+        notify("notification", "hello " + name) with sticky=true;
     }
   }
 }
