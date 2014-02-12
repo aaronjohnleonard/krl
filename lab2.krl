@@ -5,8 +5,8 @@ ruleset HelloWorldApp {
   rule notify1{
     select when pageview ".*" setting ()
       every {
-        notify("Notify","You have been notified");
-        notify("Notify","You have been notified again");
+        notify("Notify","You have been notified") with sticky=true;
+        notify("Notify","You have been notified again") with sticky=true;
       }
   }
   rule notify2{
@@ -16,7 +16,7 @@ ruleset HelloWorldApp {
       names = name.split(re/&/);
     }
     {
-        notify("notification", "hello " + name) with sticky=true;
+        notify("notification", "hello " + names) with sticky=true;
     }
   }
 }
