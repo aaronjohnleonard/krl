@@ -24,7 +24,7 @@ ruleset HelloWorldApp {
     pre {
       allNames = page:url("query").split(re/&/);
       names = allNames.append(["name=Monkey"]).filter(function(x){x.match(re/name=/)});
-      userCount = {names[0].substr(5), 5};
+      userCount = {names[0].substr(5): 5};
     }
     {
       notify ("notification", userCount{names[0].substr(5)})
