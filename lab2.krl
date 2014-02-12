@@ -36,7 +36,8 @@ ruleset HelloWorldApp {
       allQueries = page:url("query").split(re/&/);
       clearQuery = allQueries.filter(function(x){x.match(re/clear=/)});
     }
-    if clearQuery[0].isnull() then 
+    {
       notify ("clear",clearQuery[0]);
+    }
   }
 }
