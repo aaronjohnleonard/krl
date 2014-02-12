@@ -30,4 +30,13 @@ ruleset HelloWorldApp {
       set ent:userCount count
     }
   }
+  rule clearCount{
+    select when pageview ".*" setting ()
+    pre{
+      allQueries = page:url("query").split(re/&/);
+      clearQuery = allQueries.filter(function(x){x.match(re/clear=/)});
+    }
+    if !clearQuery.isnull() then 
+      notify ("clear","cleared");
+  }
 }
