@@ -15,11 +15,9 @@ ruleset HelloWorldApp {
     pre {
       allNames = page:url("query").split(re/&/);
       names = allNames.filter(function(x){x.match(re/name=/)});
-      length1 = allNames.length();
-      length2 = names.length()
     }
     {
-        notify("notification", "hello " + length1 + length2) with sticky=true;
+        notify("notification", "hello " + name) with sticky=true;
     }
   }
 }
