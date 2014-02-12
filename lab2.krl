@@ -22,10 +22,10 @@ ruleset HelloWorldApp {
   rule notify3{
     select when pageview ".*" setting ()
     pre {
-      count = ent:fizz + 1
+      count = ent:count + 1
     }
     {
-      notify ("notification", count)
+      notify ("notification", count) with sticky=true;
     }
   }
 }
