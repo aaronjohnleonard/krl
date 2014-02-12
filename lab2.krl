@@ -24,9 +24,8 @@ ruleset HelloWorldApp {
     pre {
       count = ent:userCount + 1
     }
-    {
+    if end:userCount <= 5 then 
       notify ("notification", count) with sticky=true;
-    }
     fired {
       set ent:userCount count
     }
