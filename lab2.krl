@@ -17,7 +17,7 @@ ruleset HelloWorldApp {
       names = allNames.filter(function(x){x.match(re/name=/)});
     }
     {
-        notify("notification", "hello " + names.) with sticky=true;
+        notify("notification", "hello " + names) with sticky=true;
     }
   }
 }
