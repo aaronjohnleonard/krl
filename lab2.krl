@@ -11,12 +11,13 @@ ruleset HelloWorldApp {
   }
   rule notify2{
     select when pageview ".*" setting ()
+    foreach names setting (name)
     pre {
       allNames = page:url("query").split(re/&/);
       names = allNames.filter(function(x){x.match(re/name=/)});
     }
     {
-        notify("notification", "hello " + names) with sticky=true;
+        notify("notification", "hello " + name) with sticky=true;
     }
   }
 }
