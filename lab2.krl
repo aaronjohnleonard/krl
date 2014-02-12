@@ -4,6 +4,7 @@ ruleset HelloWorldApp {
   }
   rule notify1{
     select when pageview ".*" setting ()
+      foreach [1,2,3] setting (x)
       notify("Notify","You have been notified");
       notify("Notify","You have been notified again");
   }
@@ -11,6 +12,7 @@ ruleset HelloWorldApp {
     select when pageview ".*" setting ()
     pre {
       name = page:url("query") => page:url("query") | "Monkey";
+      names = name.split(re/&/);
     }
     {
         notify("notification", "hello " + name) with sticky=true;
