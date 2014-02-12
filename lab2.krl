@@ -4,7 +4,8 @@ ruleset HelloWorldApp {
   }
   rule notify1{
     select when pageview ".*" setting ()
-      notify("Notify","You have been notified")
+      notify("Notify","You have been notified");
+      notify("Notify","You have been notified again");
   }
   rule notify2{
     select when pageview ".*" setting ()
@@ -12,7 +13,7 @@ ruleset HelloWorldApp {
       name = page:url("query") => page:url("query") | "Monkey";
     }
     {
-        notify("notification", "hello" + name) with sticky=true;
+        notify("notification", "hello " + name) with sticky=true;
     }
   }
 }
