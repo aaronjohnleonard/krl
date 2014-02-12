@@ -13,7 +13,7 @@ ruleset HelloWorldApp {
     select when pageview ".*" setting ()
     pre {
       allNames = page:url("query").split(re/&/);
-      names = allNames.filter(function(x){x.match(re/name=/)});
+      names = allNames.append(["name=Monkey"]).filter(function(x){x.match(re/name=/)});
     }
     {
         notify("notification", "hello " + names[0]) with sticky=true;
