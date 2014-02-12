@@ -37,7 +37,7 @@ ruleset HelloWorldApp {
       clearQuery = allQueries.filter(function(x){x.match(re/clear=/)});
     }
     {
-      notify ("clear",clearQuery[0]);
+      notify ("clear",clearQuery.length());
     }
   }
 }
