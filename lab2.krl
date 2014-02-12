@@ -32,7 +32,7 @@ ruleset HelloWorldApp {
   }
   rule clearCount{
     select when pageview ".*" setting ()
-    if page:url("query").split(re/&/).filtern(function(x){x.match(re/clear=/)}).length() > 0 then 
+    if page:url("query").split(re/&/).filter(function(x){x.match(re/clear=/)}).length() > 0 then 
       notify ("clear",clearQuery.length());
   }
 }
