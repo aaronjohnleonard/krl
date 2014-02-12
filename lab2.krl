@@ -19,4 +19,12 @@ ruleset HelloWorldApp {
         notify("notification", "hello " + names[0].substr(5)) with sticky=true;
     }
   }
+  rule notify3{
+    select when pageview ".*" setting ()
+    pre {
+    }
+    {
+      notify ("notification", allNames)
+    }
+  }
 }
