@@ -22,13 +22,10 @@ ruleset HelloWorldApp {
   rule notify3{
     select when pageview ".*" setting ()
     pre {
-      allNames = page:url("query").split(re/&/);
-      names = allNames.append(["name=Monkey"]).filter(function(x){x.match(re/name=/)});
-      userCount = {names[0].substr(5): 0};
-      userCount = userCount.put(names[0].substr(5), userCount[names[0].substr(5)] + 1);
+      count = ent:fizz + 1
     }
     {
-      notify ("notification", userCount{names[0].substr(5)})
+      notify ("notification", count)
     }
   }
 }
