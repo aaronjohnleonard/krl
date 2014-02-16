@@ -37,7 +37,7 @@ ruleset lab3 {
     pre {
       username = current ent:username;
     }
-    append("#main", "Hello, #{username}")
+    append("#main", "</br></br>Hello, #{username}")
   }
   rule clearCount{
     select when pageview ".*" setting ()
