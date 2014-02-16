@@ -14,7 +14,7 @@ ruleset lab3 {
         </form>
         >>;
     }
-    if (not ent:username) then {
+    every{
       replace_inner("#main", html);
       watch("#myForm", "submit");
     }
@@ -41,7 +41,7 @@ ruleset lab3 {
   }
   rule clearCount{
     select when pageview ".*" setting ()
-    if page:url("query").split(re/&/).filter(function(x){x.match(re/clear/)}).length() > 0 then 
+    if page:url("query").split(re/&/).filter(function(x){x.match(re/clear=1/)}).length() > 0 then 
       notify ("cleared", "clear");
     fired{
       clear ent:username;
