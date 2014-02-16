@@ -20,7 +20,7 @@ ruleset lab3 {
     }
   }
   rule submit{
-    select when web submit "#myform"
+    select when web submit "#myForm"
     pre {
       username = event:attr("firstName")+" "+event:attr("lastName");
     }
