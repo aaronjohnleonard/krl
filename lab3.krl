@@ -6,7 +6,10 @@ ruleset lab3 {
     select when pageview ".*" setting ()
     pre {
       html = <<
-        <h1> BIG TEXT <h1>
+        <form>
+          First Name: <input type="text" name="firstName"><br>
+          Last Name: <input type="text" name="lastName">
+        </form>
         >>
     }
     {
