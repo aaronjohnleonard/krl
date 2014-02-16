@@ -7,15 +7,26 @@ ruleset lab3 {
     pre {
       html = <<
         </br>
-        <form>
+        <form id='myForm'>
           First Name: <input type="text" name="firstName"><br>
-          Last Name: <input type="text" name="lastName">
+          Last Name: <input type="text" name="lastName"></br>
           <input type="submit" value="Submit">
         </form>
-        >>
+        >>;
     }
     {
-      replace_html("#main", html)
+      replace_html("#main", html);
+      watch("#myForm", "click");
+    }
+  }
+  rule submit{
+    select when web submit "#my_form"
+    pre {
+      username = event.attr("firstName")+" "+event:attr("lastName");
+    }
+    replace_html("#myForm", "Hello #{username}");
+    fired {
+      set ent:username username;
     }
   }
 }
