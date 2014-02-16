@@ -14,7 +14,7 @@ ruleset lab3 {
         </form>
         >>;
     }
-    if (not ent:username) then {
+    every{
       replace_inner("#main", html);
       watch("#myForm", "submit");
     }
