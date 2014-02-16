@@ -24,7 +24,10 @@ ruleset lab3 {
     pre {
       username = event:attr("firstName")+" "+event:attr("lastName");
     }
-    replace_html("#myForm", "Hello #{username}");
+    every {
+      notify("notify","notify");
+      replace_html("#myForm", "Hello #{username}");
+    }
     fired {
       set ent:username username;
     }
