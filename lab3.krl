@@ -35,7 +35,7 @@ ruleset lab3 {
       set ent:username username;
     }
   }
-  rule submit{
+  rule show_name{
     select when pageview ".*" setting ()
     pre {
       username = current ent:username;
