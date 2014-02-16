@@ -38,7 +38,8 @@ ruleset lab3 {
       username = current ent:username;
     }
     if (not ent:username.isnull()) then {
-      after("#myForm", "<p>Hello, #{username}</p>")
+      notify ("here","here");
+      after("#myForm", "<p>Hello, #{username}</p>");
     }
   }
   rule clearCount{
