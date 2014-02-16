@@ -7,7 +7,7 @@ ruleset lab3 {
     pre {
       html = <<
         </br>
-        <form id="myForm" onsubmit="return false">
+        <form id='myForm' onsubmit="return false">
           First Name: <input type="text" name="firstName"><br>
           Last Name: <input type="text" name="lastName"></br>
           <input type="submit" value="Submit">
@@ -22,9 +22,18 @@ ruleset lab3 {
       last;
     }
   }
-  rule respond_submit{
+  rule submit{
     select when web submit "#myForm"
-    notify("notify","notify");
+    pre {
+      username = event:attr("firstName")+" "+event:attr("lastName");
+    }
+    every {
+      notify("notify","notify");
+      replace_html("#myForm", "Hello #{username}");
+    }
+    fired {
+      set ent:username username;
+    }
   }
   rule show_name{
     select when pageview ".*" setting ()
