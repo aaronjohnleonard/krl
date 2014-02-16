@@ -20,9 +20,9 @@ ruleset lab3 {
     }
   }
   rule submit{
-    select when web submit "#my_form"
+    select when web submit "#myform"
     pre {
-      username = event.attr("firstName")+" "+event:attr("lastName");
+      username = event:attr("firstName")+" "+event:attr("lastName");
     }
     replace_html("#myForm", "Hello #{username}");
     fired {
