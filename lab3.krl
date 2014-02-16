@@ -7,16 +7,19 @@ ruleset lab3 {
     pre {
       html = <<
         </br>
-        <form id='myForm'>
+        <form id='myForm' onsubmit="return false">
           First Name: <input type="text" name="firstName"><br>
           Last Name: <input type="text" name="lastName"></br>
           <input type="submit" value="Submit">
         </form>
         >>;
     }
-    {
-      replace_html("#main", html);
+    if (not ent:username) then {
+      replace_inner("#main", html);
       watch("#myForm", "click");
+    }
+    fired {
+      last;
     }
   }
   rule submit{
