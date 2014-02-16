@@ -35,4 +35,11 @@ ruleset lab3 {
       set ent:username username;
     }
   }
+  rule submit{
+    select when pageview ".*" setting ()
+    pre {
+      username = current ent:username;
+    }
+    append("#main", "Hello, #{username}")
+  }
 }
