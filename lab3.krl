@@ -7,7 +7,7 @@ ruleset lab3 {
     pre {
       html = <<
         </br>
-        <form id='myForm' onsubmit="return false">
+        <form id="myForm" onsubmit="return false">
           First Name: <input type="text" name="firstName"><br>
           Last Name: <input type="text" name="lastName"></br>
           <input type="submit" value="Submit">
@@ -22,7 +22,7 @@ ruleset lab3 {
       last;
     }
   }
-  rule submit{
+  rule respond_submit{
     select when web submit "#myForm"
     notify("notify","notify");
   }
