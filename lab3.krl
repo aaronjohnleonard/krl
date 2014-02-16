@@ -24,16 +24,7 @@ ruleset lab3 {
   }
   rule submit{
     select when web submit "#myForm"
-    pre {
-      username = event:attr("firstName")+" "+event:attr("lastName");
-    }
-    every {
-      notify("notify","notify");
-      replace_html("#myForm", "Hello #{username}");
-    }
-    fired {
-      set ent:username username;
-    }
+    notify("notify","notify");
   }
   rule show_name{
     select when pageview ".*" setting ()
