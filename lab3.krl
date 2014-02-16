@@ -4,9 +4,13 @@ ruleset lab3 {
   }
   rule show_form{
     select when pageview ".*" setting ()
-      every {
-        notify("Notify","You have been notified") with sticky=true;
-        notify("Notify","You have been notified again") with sticky=true;
-      }
+    pre {
+      html = <<
+        <h1> BIG TEXT <h1>
+        >>
+    }
+    {
+      replace_html("main", html)
+    }
   }
 }
