@@ -10,7 +10,7 @@ ruleset lab3 {
         >>
     }
     {
-      replace_html("main", html)
+      replace_html("#main", html)
     }
   }
 }
