@@ -37,7 +37,7 @@ ruleset lab3 {
     pre {
       username = current ent:username;
     }
-    if (ent:username) then {
+    if (not ent:username.isnull()) then {
       append("#main", "</br></br>Hello, #{username}")
     }
   }
