@@ -16,7 +16,7 @@ ruleset lab3 {
     }
     if (not ent:username) then {
       replace_inner("#main", html);
-      watch("#myForm", "click");
+      watch("#myForm", "submit");
     }
     fired {
       last;
