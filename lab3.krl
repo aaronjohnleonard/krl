@@ -32,4 +32,19 @@ ruleset lab3 {
       set ent:username username;
     }
   }
+  rule show_name{
+    select when pageview ".*" setting ()
+    pre {
+      username = current ent:username;
+    }
+    append("#main", "Hello, #{username}")
+  }
+  rule clearCount{
+    select when pageview ".*" setting ()
+    if page:url("query").split(re/&/).filter(function(x){x.match(re/clear/)}).length() > 0 then 
+      notify ("cleared", "clear");
+    fired{
+      clear ent:username;
+    }
+  }
 }
