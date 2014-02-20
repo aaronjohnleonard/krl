@@ -27,7 +27,10 @@ ruleset lab3 {
     pre {
       username = event:attr("firstName")+" "+event:attr("lastName");
     }
-    after("#myForm", "Hello #{username}");
+    every{
+      after("#myForm", "Hello #{username}");
+      notify("stored name");
+    }
     fired {
       set ent:username username;
     }
@@ -39,7 +42,7 @@ ruleset lab3 {
     }
     every {
       notify ("here","here");
-      after("#myForm", "#{username}</p>");
+      after("#myForm", "#{username}");
     }
   }
   rule clearCount{
