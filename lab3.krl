@@ -35,14 +35,13 @@ ruleset lab3 {
       set ent:username username;
     }
   }
-  rule notify{
+  rule notifying{
     select when pageview ".*" setting()
     pre{
 
     }
-    every {
-      notify("here","here");
-    }
+    notify("here","here");
+    
   }
   rule show_name{
     select when pageview ".*" setting ()
