@@ -33,7 +33,7 @@ ruleset lab3 {
     pre {
       username = event:attr("firstName")+" "+event:attr("lastName");
     }
-    after("#myForm", "Hello #{username}");
+    after("#myForm", "<p>Hello, #{username}</p>");
     fired {
       set ent:username username;
     }
