@@ -24,30 +24,19 @@ ruleset lab3 {
     pre {
       username = event:attr("firstName")+" "+event:attr("lastName");
     }
-    every{
-      after("#myForm", "Hello #{username}");
-      notify("stored name", "hi");
-    }
+    append("#myForm", "Hello #{username}");
     fired {
       set ent:username username;
     }
   }
-  rule notifying{
-    select when pageview ".*" setting()
-    pre{
-
-    }
-    notify("here","here");
-    
-  }
   rule show_name{
     select when pageview ".*" setting ()
     pre {
-      username = ent:username;
+      username = current ent:username;
     }
-    every {
+    if (ent:username) then {
       notify ("here","here");
-      after("#myForm", "#{username}");
+      after("#myForm", "<p>Hello, #{username}</p>");
     }
   }
   rule clearCount{
