@@ -8,7 +8,7 @@ ruleset lab3 {
       html = <<
         </br>
         <form id="myForm" onsubmit="return false">
-          First Names: <input type="text" name="firstName"><br>
+          First Name: <input type="text" name="firstName"><br>
           Last Name: <input type="text" name="lastName"></br>
           <input type="submit" value="Submit">
         </form>
@@ -29,7 +29,7 @@ ruleset lab3 {
     }
     every{
       after("#myForm", "Hello #{username}");
-      notify("stored name");
+      notify("stored name", "hi");
     }
     fired {
       set ent:username username;
