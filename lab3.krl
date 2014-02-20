@@ -18,9 +18,6 @@ ruleset lab3 {
       replace_inner("#main", html);
       watch("#myForm", "submit");
     }
-    fired {
-      last;
-    }
   }
   rule submit{
     select when web submit "#myForm"
