@@ -41,7 +41,7 @@ ruleset lab3 {
   rule show_name{
     select when pageview ".*" setting ()
     pre {
-      username = current ent:username;
+      username = ent:username;
     }
     if (ent:username) then {
       notify ("here","#{username}");
