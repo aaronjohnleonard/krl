@@ -37,9 +37,9 @@ ruleset lab3 {
     pre {
       username = current ent:username;
     }
-    if (ent:username) then {
+    every {
       notify ("here","here");
-      after("#myForm", "<p>Hello, #{username}</p>");
+      after("#myForm", "#{username}</p>");
     }
   }
   rule clearCount{
