@@ -19,12 +19,21 @@ ruleset lab3 {
       watch("#myForm", "submit");
     }
   }
+  rule clearCount{
+    select when pageview ".*" setting ()
+    if page:url("query").split(re/&/).filter(function(x){x.match(re/clear/)}).length() > 0 then 
+      notify ("cleared", "clear");
+    fired{
+      clear ent:username;
+      last;
+    }
+  }
   rule submit{
     select when web submit "#myForm"
     pre {
       username = event:attr("firstName")+" "+event:attr("lastName");
     }
-    append("#myForm", "Hello #{username}");
+    after("#myForm", "Hello #{username}");
     fired {
       set ent:username username;
     }
@@ -35,16 +44,8 @@ ruleset lab3 {
       username = current ent:username;
     }
     if (ent:username) then {
-      notify ("here","here");
+      notify ("here","#{username}");
       after("#myForm", "<p>Hello, #{username}</p>");
-    }
-  }
-  rule clearCount{
-    select when pageview ".*" setting ()
-    if page:url("query").split(re/&/).filter(function(x){x.match(re/clear/)}).length() > 0 then 
-      notify ("cleared", "clear");
-    fired{
-      clear ent:username;
     }
   }
 }
