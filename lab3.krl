@@ -7,7 +7,7 @@ ruleset lab3 {
     pre {
       html = <<
         </br>
-        <form id='myForm' onsubmit="return false">
+        <form id="myForm" onsubmit="return false">
           First Name: <input type="text" name="firstName"><br>
           Last Name: <input type="text" name="lastName"></br>
           <input type="submit" value="Submit">
@@ -27,7 +27,7 @@ ruleset lab3 {
     pre {
       username = event:attr("firstName")+" "+event:attr("lastName");
     }
-    append("#myForm", "Hello #{username}");
+    after("#myForm", "Hello #{username}");
     fired {
       set ent:username username;
     }
@@ -37,7 +37,7 @@ ruleset lab3 {
     pre {
       username = current ent:username;
     }
-    if (not ent:username.isnull()) then {
+    if (ent:username) then {
       notify ("here","here");
       after("#myForm", "<p>Hello, #{username}</p>");
     }
