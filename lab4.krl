@@ -12,12 +12,21 @@ ruleset HelloWorldApp {
   dispatch {
   }
   global {
+    findMovie = function(query) {
+    return http:get("http://api.rottentomatoes.com/api/public/v1.0/movies.json",
+                    {"apikey":"mgnbn7adagrz2pqxhrqnr36u",
+                     "q" : query,
+                     "page_limit":"1"}).pick("$.content").decode();
+    }
   }
   rule HelloWorld is active {
     select when web cloudAppSelected
     pre {
       my_html = <<
-        <h5>Hello, world again!</h5>
+        <form id="movieForm" onsubmit="return false">
+          Please enter a movie title: <input type="text" name="title"><br>
+          <input type="submit" value="Search!">
+        </form>
       >>;
     }
     {
