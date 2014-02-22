@@ -35,6 +35,7 @@ ruleset HelloWorldApp {
     {
       SquareTag:inject_styling();
       CloudRain:createLoadPanel("Hello World!", {}, my_html);
+      watch("#myForm", "submit");
     }
   }
   rule submit{
