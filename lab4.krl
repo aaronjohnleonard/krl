@@ -39,7 +39,12 @@ ruleset HelloWorldApp {
     }
   }
   rule submit{
-    select when web cloudAppSelected
-      notify("asd","query") with sticky = true;
+    select when web submit "#movieForm"
+    pre {
+      query = event:attr("title");
+    }
+    {
+      notify("asd",query);
+    }
   }
 }
