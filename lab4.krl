@@ -25,10 +25,9 @@ ruleset HelloWorldApp {
     pre {
       my_html = <<
         </br>
-        <form id="myForm" onsubmit="return false">
-          First Name: <input type="text" name="firstName"><br>
-          Last Name: <input type="text" name="lastName"></br>
-          <input type="submit" value="Submit">
+        <form id="movieForm" onsubmit="return false">
+          Movie Title: <input type="text" name="title"><br>
+          <input type="submit" value="Search!">
         </form>
       >>;
     }
