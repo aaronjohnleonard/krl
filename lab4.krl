@@ -44,7 +44,7 @@ ruleset HelloWorldApp {
       json = findMovie(event:attr("title"));
     }
     {
-      replace_inner("#movieInfo", json{"total"});
+      replace_inner("#movieInfo", json{["movies", 0 , "synopsis"]});
     }
   }
 }
