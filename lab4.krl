@@ -41,7 +41,10 @@ ruleset HelloWorldApp {
   rule submit{
     select when web submit "#movieForm"
     pre {
-      json = findMovie(event:attr("title"));
+      json = http:get("http://api.rottentomatoes.com/api/public/v1.0/movies.json",
+                    {"apikey":"mgnbn7adagrz2pqxhrqnr36u",
+                     "q" : Toy+Story+3,
+                     "page_limit":"1"}).pick("$.content").decode();
     }
     {
       replace_inner("#movieInfo", json);
