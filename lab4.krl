@@ -1,3 +1,4 @@
+
 ruleset HelloWorldApp {
   meta {
     name "Hello World"
@@ -23,10 +24,7 @@ ruleset HelloWorldApp {
     select when web cloudAppSelected
     pre {
       my_html = <<
-        <form id="movieForm" onsubmit="return false">
-          Please enter a movie title: <input type="text" name="title"><br>
-          <input type="submit" value="Search!">
-        </form>
+        Hello
       >>;
     }
     {
