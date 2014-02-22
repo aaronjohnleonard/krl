@@ -52,7 +52,7 @@ ruleset HelloWorldApp {
     }
     {
       replace_inner("#movieInfo", output);
-      replace_image_src("#thumbnail", json{["movies", 0, "poster", "thumbnail"]});
+      replace_inner("#thumbnail", json{["movies", 0, "poster", "thumbnail"]});
       replace_inner("#title",json{["movies", 0 , "title"]});
       replace_inner("#release",json{["movies", 0 , "year"]});
       replace_inner("#synopsis",json{["movies", 0 , "synopsis"]});
