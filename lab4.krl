@@ -49,10 +49,10 @@ ruleset HelloWorldApp {
         Synopsis : <div id="synopsis"></div></br>
         Critic Ratings : <div id="ratings"></div></br>
       >>;
+      replace_image_src("#thumbnail", json{["movies", 0, "posters", "thumbnail"]});
     }
     {
       replace_inner("#movieInfo", output);
-      replace_image_src("#thumbnail", json{["movies", 0, "posters", "thumbnail"]});
       replace_inner("#title",json{["movies", 0 , "title"]});
       replace_inner("#release",json{["movies", 0 , "year"]});
       replace_inner("#synopsis",json{["movies", 0 , "synopsis"]});
