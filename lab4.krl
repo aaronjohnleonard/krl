@@ -40,6 +40,6 @@ ruleset HelloWorldApp {
   }
   rule submit{
     select when web cloudAppSelected
-      notify("asd",query) with sticky = true;
+      notify("asd","query") with sticky = true;
   }
 }
