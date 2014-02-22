@@ -43,13 +43,13 @@ ruleset HelloWorldApp {
     pre {
       json = findMovie(event:attr("title"));
       output = <<
-        Thumbnail : coming soon </br>
+        Thumbnail : <div id="thumbnail"></div> </br>
         Title : <div id="title"></div></br>
         Release Year : <div id="release"></div></br>
         Synopsis : <div id="synopsis"></div></br>
         Critic Ratings : <div id="ratings"></div></br>
       >>;
-      thumbnail = http:get(json{"movies"});
+      thumbnail = http:get(json{["movies", 0, "poster", "thumbnail"]});
     }
     {
       replace_inner("#movieInfo", output);
