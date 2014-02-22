@@ -42,9 +42,18 @@ ruleset HelloWorldApp {
     select when web submit "#movieForm"
     pre {
       json = findMovie(event:attr("title"));
+      output = <<
+        Thumbnail : coming soon </br>
+        Title : <div id="title"></div></br>
+        Release Year : <div id="release"></div></br>
+        Synopsis : <div id="synopsis"></div></br>
+        Critic Ratings : <div id="ratings"></div></br>
     }
     {
-      replace_inner("#movieInfo", json{["movies", 0 , "synopsis"]});
+      replace_inner("#movieInfo", output);
+      replace_inner("#title",json{["movies", 0 , "title"]});
+      replace_inner("#release",json{["movies", 0 , "year"]});
+      replace_inner("#synopsis",json{["movies", 0 , "ratings", "critics_rating"]});
     }
   }
 }
