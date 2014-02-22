@@ -41,7 +41,7 @@ ruleset HelloWorldApp {
   rule submit{
     select when web submit "#movieForm"
     pre {
-      json = findMovie("braveheart")
+      json = findMovie(event:attr("title"));
     }
     {
       replace_inner("#movieInfo", json{"total"});
