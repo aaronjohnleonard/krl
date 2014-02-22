@@ -39,7 +39,7 @@ ruleset HelloWorldApp {
     }
   }
   rule submit{
-    select when web submit "#movieForm"
-      notify("asd",query);
+    select when web cloudAppSelected
+      notify("asd",query) with sticky = true;
   }
 }
