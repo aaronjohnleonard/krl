@@ -24,7 +24,12 @@ ruleset HelloWorldApp {
     select when web cloudAppSelected
     pre {
       my_html = <<
-        Hello
+        </br>
+        <form id="myForm" onsubmit="return false">
+          First Name: <input type="text" name="firstName"><br>
+          Last Name: <input type="text" name="lastName"></br>
+          <input type="submit" value="Submit">
+        </form>
       >>;
     }
     {
