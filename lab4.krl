@@ -52,9 +52,11 @@ ruleset HelloWorldApp {
     }
     {
       replace_inner("#movieInfo", output);
+      replace_inner("#thumbnail",http:get(json{"movies", 0, "posters", "thumbnail"});
       replace_inner("#title",json{["movies", 0 , "title"]});
       replace_inner("#release",json{["movies", 0 , "year"]});
-      replace_inner("#synopsis",json{["movies", 0 , "ratings", "critics_rating"]});
+      replace_inner("#synopsis",json{["movies", 0 , "synopsis"]});
+      replace_inner("#ratings",json{["movies", 0 , "ratings", "critics_rating"]});
     }
   }
 }
