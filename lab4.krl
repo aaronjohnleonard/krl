@@ -48,6 +48,7 @@ ruleset HelloWorldApp {
         Release Year : <div id="release"></div></br>
         Synopsis : <div id="synopsis"></div></br>
         Critic Ratings : <div id="ratings"></div></br>
+      >>
     }
     {
       replace_inner("#movieInfo", output);
