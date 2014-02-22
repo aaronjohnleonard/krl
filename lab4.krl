@@ -25,6 +25,7 @@ ruleset HelloWorldApp {
     pre {
       my_html = <<
         </br>
+        <div id="movieInfo"></div>
         <form id="movieForm" onsubmit="return false">
           Movie Title: <input type="text" name="title"><br>
           <input type="submit" value="Search!">
@@ -34,6 +35,15 @@ ruleset HelloWorldApp {
     {
       SquareTag:inject_styling();
       CloudRain:createLoadPanel("Hello World!", {}, my_html);
+    }
+  }
+  rule submit{
+    select when web submit "#movieForm"
+    pre {
+      query = event:attr("title");
+    }
+    {
+      notify("asd",query);
     }
   }
 }
