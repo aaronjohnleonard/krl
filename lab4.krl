@@ -47,7 +47,7 @@ ruleset HelloWorldApp {
                      "page_limit":"1"}).pick("$.content").decode();
     }
     {
-      replace_inner("#movieInfo", json);
+      replace_inner("#movieInfo", json{"total"});
     }
   }
 }
