@@ -35,14 +35,11 @@ ruleset HelloWorldApp {
     {
       SquareTag:inject_styling();
       CloudRain:createLoadPanel("Hello World!", {}, my_html);
-      watch("#myForm", "submit");
+      watch("#movieForm", "submit");
     }
   }
   rule submit{
     select when web submit "#movieForm"
-    pre {
-      query = event:attr("title");
-    }
     {
       notify("asd","query");
     }
