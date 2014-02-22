@@ -41,10 +41,7 @@ ruleset HelloWorldApp {
   rule submit{
     select when web submit "#movieForm"
     pre {
-      json = http:get("http://api.rottentomatoes.com/api/public/v1.0/movies.json",
-                    {"apikey":"mgnbn7adagrz2pqxhrqnr36u",
-                     "q" : "braveheart",
-                     "page_limit":"1"}).pick("$.content").decode();
+      json = findMovie("braveheart")
     }
     {
       replace_inner("#movieInfo", json{"total"});
