@@ -40,8 +40,11 @@ ruleset HelloWorldApp {
   }
   rule submit{
     select when web submit "#movieForm"
+    pre {
+      query = event:attr("title");
+    }
     {
-      notify("asd","query");
+      notify("asd",query);
     }
   }
 }
