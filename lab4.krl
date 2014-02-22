@@ -44,7 +44,7 @@ ruleset HelloWorldApp {
       query = event:attr("title");
     }
     {
-      notify("asd",query);
+      notify("asd","query");
     }
   }
 }
