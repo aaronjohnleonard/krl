@@ -13,7 +13,7 @@ ruleset HelloWorldApp {
   }
   global {
     findMovie = function(query) {
-    return http:get("http://api.rottentomatoes.com/api/public/v1.0/movies.json",
+      http:get("http://api.rottentomatoes.com/api/public/v1.0/movies.json",
                     {"apikey":"mgnbn7adagrz2pqxhrqnr36u",
                      "q" : query,
                      "page_limit":"1"}).pick("$.content").decode();
