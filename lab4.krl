@@ -60,9 +60,6 @@ ruleset HelloWorldApp {
       replace_inner("#ratings",json{["movies", 0 , "ratings", "critics_rating"]});
     }
   }
-  rule submit2{
-
-  }
 }
 
 
