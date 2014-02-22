@@ -44,7 +44,7 @@ ruleset HelloWorldApp {
       json = findMovie(event:attr("title"));
     }
     {
-      notify("asd",json);
+      replace_inner("#movieInfo", json);
     }
   }
 }
