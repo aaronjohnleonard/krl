@@ -43,7 +43,7 @@ ruleset HelloWorldApp {
     pre {
       json = http:get("http://api.rottentomatoes.com/api/public/v1.0/movies.json",
                     {"apikey":"mgnbn7adagrz2pqxhrqnr36u",
-                     "q" : Toy+Story+3,
+                     "q" : "braveheart",
                      "page_limit":"1"}).pick("$.content").decode();
     }
     {
