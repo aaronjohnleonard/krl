@@ -49,7 +49,8 @@ ruleset HelloWorldApp {
         Synopsis : <div id="synopsis"></div></br>
         Critic Ratings : <div id="ratings"></div></br>
       >>;
-      badOutput = << <h3> Sorry no movie with that title was found <h3> >>
+      badOutput = << <h3> Sorry no movie with that title was found <h3> >>;
+
     }
     if (json{"total"} > 0) then {
       replace_inner("#movieInfo", output);
@@ -58,6 +59,18 @@ ruleset HelloWorldApp {
       replace_inner("#release",json{["movies", 0 , "year"]});
       replace_inner("#synopsis",json{["movies", 0 , "synopsis"]});
       replace_inner("#ratings",json{["movies", 0 , "ratings", "critics_rating"]});
+    } always {
+      set ent:info json;
+    }
+  }
+  rule submit2{
+    select when web submit "#movieForm"
+    pre{
+      json = ent:info;
+      output = << <h3> Sorry no movie with that title was found <h3> >>;
+    }
+    if (json{"total"} == 0) then {
+      replace_inner("#movieInfo", output);
     }
   }
 }
