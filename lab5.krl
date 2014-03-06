@@ -37,9 +37,9 @@ ruleset foursquare{
   	}
   }
   rule display_checkin {
-  	select when web pageview ".*"
+  	select when web cloudAppSelected
   	pre{
-  		thisVenue = ent:venue
+  		thisVenue = ent:venue;
   	}
   	{
   		replace_inner("#insertHere", thisVenue);
