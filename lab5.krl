@@ -21,8 +21,8 @@ ruleset foursquare{
       	my_html = <<
       	  </br>
       	  <h1>Foursquare</h1>
-      	  #{thisVenue}
-      	  #{thisShout}
+      	  #{thisVenue}<br>
+      	  #{thisShout}<br>
       	>>;
     }
     {
