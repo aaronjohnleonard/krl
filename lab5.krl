@@ -18,11 +18,15 @@ ruleset foursquare{
     pre {
   		thisVenue = ent:venue;
   		thisShout = ent:shout;
+  		thisTime = ent:time;
+  		thisCity = ent:city;
       	my_html = <<
       	  </br>
       	  <h1>Foursquare</h1>
       	  #{thisVenue}<br>
       	  #{thisShout}<br>
+      	  #{thisTime}<br>
+      	  #{thisCity}<br>
       	>>;
     }
     {
@@ -38,6 +42,8 @@ ruleset foursquare{
   	always{
   		set ent:venue response.pick("$.venue.name").encode();
   		set ent:shout response.pick("$.shout").encode();
+  		set ent:city  response.pick("$.venue.location.city").encode();
+  		set ent:time  response.pick("$.createdAt").encode();
   	}
   }
 }
