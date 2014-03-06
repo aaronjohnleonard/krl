@@ -30,10 +30,10 @@ ruleset foursquare{
   rule process_fs_checkin {
   	select when foursquare checkin
   	pre {
-  		input = << <h3> the event worked </h3> >>;
+  		response = event:param("checkin").decode();
   	}
   	always{
-  		set ent:venue event:attr("venue");
+  		set ent:venue response.pick("$.venue.name").encode();
   	}
   }
   rule display_checkin {
