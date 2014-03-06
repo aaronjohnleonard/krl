@@ -18,12 +18,12 @@ ruleset foursquare{
     pre {
       my_html = <<
         </br>
-        <h1>Hello world</h1>
+        <h1>Foursquare</h1>
       >>;
     }
     {
       SquareTag:inject_styling();
-      CloudRain:createLoadPanel("Hello World!", {}, my_html);
+      CloudRain:createLoadPanel("Foursquare!", {}, my_html);
     }
   }
   rule process_fs_checkin {
