@@ -17,10 +17,12 @@ ruleset foursquare{
     select when web cloudAppSelected
     pre {
   		thisVenue = ent:venue;
+  		thisShout = ent:shout;
       	my_html = <<
       	  </br>
       	  <h1>Foursquare</h1>
       	  #{thisVenue}
+      	  #{thisShout}
       	>>;
     }
     {
@@ -35,6 +37,7 @@ ruleset foursquare{
   	}
   	always{
   		set ent:venue response.pick("$.venue.name").encode();
+  		set ent:shout response.pick("$.shout").encode();
   	}
   }
 }
