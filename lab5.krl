@@ -13,18 +13,19 @@ ruleset foursquare{
   }
   global {
   }
-  rule HelloWorld is active {
+  rule display_checkin{
     select when web cloudAppSelected
     pre {
-      my_html = <<
-        </br>
-        <h1>Foursquare</h1>
-        <div id="insertHere"></div>
-      >>;
+  		thisVenue = ent:venue;
+      	my_html = <<
+      	  </br>
+      	  <h1>Foursquare</h1>
+      	  #{thisVenue}
+      	>>;
     }
     {
-      SquareTag:inject_styling();
-      CloudRain:createLoadPanel("Foursquare!", {}, my_html);
+      	SquareTag:inject_styling();
+      	CloudRain:createLoadPanel("Foursquare!", {}, my_html);
     }
   }
   rule process_fs_checkin {
@@ -34,15 +35,6 @@ ruleset foursquare{
   	}
   	always{
   		set ent:venue response.pick("$.venue.name").encode();
-  	}
-  }
-  rule display_checkin {
-  	select when web cloudAppSelected
-  	pre{
-  		thisVenue = ent:venue;
-  	}
-  	{
-  		replace_inner("#insertHere", thisVenue);
   	}
   }
 }
