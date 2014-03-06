@@ -33,10 +33,33 @@ ruleset foursquare{
   		input = << <h3> the event worked </h3> >>;
   	}
   	{
-  		send_directive("text") with body = "my text response";
+  		
   	}
   	always{
-  		set ent:count ent:count+1;
+  		set ent:venue event:attr("venue");
+  	}
+  }
+  rule display_checkin {
+  	select when web pageview ".*"
+  	pre{
+  		thisVenue = ent:venue
+  	}
+  	{
+  		replace_inner("#insertHere", thisVenue);
   	}
   }
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
