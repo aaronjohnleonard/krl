@@ -16,7 +16,6 @@ ruleset foursquare{
   rule HelloWorld is active {
     select when web cloudAppSelected
     pre {
-    	thisCount = ent:count;
       my_html = <<
         </br>
         <h1>Foursquare</h1>
@@ -26,7 +25,6 @@ ruleset foursquare{
     {
       SquareTag:inject_styling();
       CloudRain:createLoadPanel("Foursquare!", {}, my_html);
-  		replace_inner("#insertHere",thisCount);
     }
   }
   rule process_fs_checkin {
@@ -35,7 +33,7 @@ ruleset foursquare{
   		input = << <h3> the event worked </h3> >>;
   	}
   	{
-  		replace_inner("#insertHere",input);
+  		send_directive("text") with body = "my text response";
   	}
   	always{
   		set ent:count ent:count+1;
