@@ -21,16 +21,18 @@ ruleset foursquare{
         <h1>Foursquare</h1>
         <div id="insertHere"></div>
       >>;
+  		input = <<INPUT2>>;
     }
     {
       SquareTag:inject_styling();
       CloudRain:createLoadPanel("Foursquare!", {}, my_html);
+  		replace_inner("#insertHere",input);
     }
   }
   rule process_fs_checkin {
   	select when foursquare checkin
   	pre {
-  		input = <<INPUT>>
+  		input = <<INPUT>>;
   	}
   	{
   		replace_inner("#insertHere",input);
