@@ -16,7 +16,7 @@ ruleset foursquare{
   rule HelloWorld is active {
     select when web cloudAppSelected
     pre {
-    	thisCount = ent:count
+    	thisCount = "hello";
       my_html = <<
         </br>
         <h1>Foursquare</h1>
