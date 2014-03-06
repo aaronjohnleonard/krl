@@ -32,9 +32,6 @@ ruleset foursquare{
   	pre {
   		input = << <h3> the event worked </h3> >>;
   	}
-  	{
-  		
-  	}
   	always{
   		set ent:venue event:attr("venue");
   	}
