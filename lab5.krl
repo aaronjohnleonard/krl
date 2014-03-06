@@ -25,6 +25,13 @@ ruleset foursquare{
       SquareTag:inject_styling();
       CloudRain:createLoadPanel("Foursquare!", {}, my_html);
     }
+    always{
+      raise explicit event test_event;
+    }
+  }
+  rule testing123{
+  	select when explicit test_event
+  		notify("testing","123");
   }
   rule process_fs_checkin {
   	select when foursquare checkin
