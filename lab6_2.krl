@@ -15,7 +15,7 @@ ruleset examine_location{
   global {
   }
   rule show_fs_location{
-  select when web cloudAppSelected
+  select when web ".*"
   notify("hello","hi");
   }
 }
