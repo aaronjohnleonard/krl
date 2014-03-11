@@ -19,7 +19,7 @@ ruleset examine_location{
   	{
      	SquareTag:inject_styling();
      	CloudRain:createLoadPanel("Hello World!", {}, my_html);
-  		notify("hello",location_data:get_location_data("venue"));
+  		notify("helloa",location_data:get_location_data("venue"));
   	}
   }
 }
