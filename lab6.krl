@@ -24,5 +24,8 @@ ruleset location_data{
   	newMap = { event:attr("key") : event:attr("value") }	;
   	thisMap = thisMap.put(newMap);
   }
+  always{
+  	set ent:testing "hi";
+  }
   }
 }
