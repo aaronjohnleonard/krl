@@ -44,8 +44,7 @@ ruleset foursquare{
   		set ent:shout response.pick("$.shout").encode();
   		set ent:city  response.pick("$.venue.location.city").encode();
   		set ent:time  response.pick("$.createdAt").encode();
-      raise pds event new_location_data
-        attributes {checkin:{"venue":ent:venue}};
+      raise pds event new_location_data;
   	}
   }
 }
