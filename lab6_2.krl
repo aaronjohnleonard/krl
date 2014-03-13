@@ -16,10 +16,16 @@ ruleset examine_location{
   	}
   	rule show_fs_location{
   	select when web cloudAppSelected
+  	pre{
+  		html = <<
+  			</br>
+  			<h1>Foursquare</h1>
+  			<div id="info"></div>
+  			>>
+  	}
   	{
      	SquareTag:inject_styling();
      	CloudRain:createLoadPanel("Hello World!", {}, my_html);
-  		notify("hello",location_data:get_location_data("venue"));
   	}
   }
 }
