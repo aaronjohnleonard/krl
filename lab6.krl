@@ -14,12 +14,18 @@ ruleset location_data{
   }
   global {
     get_location_data = function(key) {
-    	ent:test;
+    	ent:myMap{key};
     }
   }
-  rule add_location_data is active{
+  rule add_location_data{
   select when pds new_location_data
+  pre{
+  	thisMap = ent:myMap;
+  	newMap = { event:attr("key") : event:attr("value") }	;
+  	thisMap = thisMap.put(newMap);
+  }
   always{
+  	set ent:myMap thisMap;
   	set ent:test "event worked!";
   }
   }

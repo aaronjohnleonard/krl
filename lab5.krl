@@ -38,10 +38,14 @@ ruleset foursquare{
   	select when foursquare checkin
   	pre {
   		response = event:param("checkin").decode();
+      thisVenue = response.pick("$.venue.name").encode();
+      thisShout = response.pick("$.shout").encode();
+      myMap = { "venue" : thisVenue ,
+                "shout" : thisShout };
   	}
   	always{
-  		set ent:venue response.pick("$.venue.name").encode();
-  		set ent:shout response.pick("$.shout").encode();
+  		set ent:venue thisVenue;
+  		set ent:shout thisShout;
   		set ent:city  response.pick("$.venue.location.city").encode();
   		set ent:time  response.pick("$.createdAt").encode();
       raise pds event 'new_location_data'
