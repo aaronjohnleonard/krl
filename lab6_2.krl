@@ -26,10 +26,6 @@ ruleset examine_location{
   			</br>
   			<h1>Foursquares</h1>
   			<div id="info">
-  				#{venue}</br>
-  				#{shout}</br>
-  				#{city}</br>
-  				#{time}</br>
   			</div>
   			>>;
   	}
