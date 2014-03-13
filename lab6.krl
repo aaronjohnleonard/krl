@@ -21,11 +21,12 @@ ruleset location_data{
   select when pds new_location_data
   pre{
   	thisMap = ent:myMap;
-  	newMap = { event:attr("key") : event:attr("value") }	;
-  	thisMap = thisMap.put(newMap);
+  	key = event:attr("key");
+  	value = event:attr("value");
+  	otherMap = thisMap.put([key], value);
   }
   always{
-  	set ent:myMap thisMap;
+  	set ent:myMap otherMap;
   }
   }
 }
