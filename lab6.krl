@@ -17,7 +17,7 @@ ruleset location_data{
     	ent:test;
     }
   }
-  rule add_location_data{
+  rule add_location_data is active{
   select when pds new_location_data
   always{
   	set ent:test "event worked!";
