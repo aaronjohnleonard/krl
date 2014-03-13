@@ -47,7 +47,7 @@ ruleset foursquare{
                 "city"  : thisCity,
                 "time"  : thisTime };
   	}
-    send_directive(thisVenue) with "checkin" = thisVenue;
+    send_directive(thisVenue) with key = "checkin" and value = thisVenue;
   	always{
   		set ent:venue thisVenue;
   		set ent:shout thisShout;

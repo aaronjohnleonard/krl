@@ -25,7 +25,7 @@ ruleset location_data{
   	value = event:attr("value");
   	otherMap = thisMap.put([key], value);
   }
-  send_directives(key) with "location" = value;
+  send_directives(key) with key = "location" and value = value;
   always{
   	set ent:myMap otherMap;
   	set ent:val value;
