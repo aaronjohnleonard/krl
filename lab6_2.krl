@@ -24,15 +24,18 @@ ruleset examine_location{
   		time = info{"time"};
   		html = <<
   			</br>
-  			<h1>Foursquares</h1>
+  			<h1>Foursquare</h1>
   			<div id="info">
+  				#{venue}</br>
+  				#{shout}</br>
+  				#{city}</br>
+  				#{time}</br>
   			</div>
   			>>;
   	}
   	{
      	SquareTag:inject_styling();
      	CloudRain:createLoadPanel("FS Checkin!", {}, html);
-     	replace_inner("#info",info);
   	}
   }
 }
