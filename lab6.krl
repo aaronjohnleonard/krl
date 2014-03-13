@@ -14,7 +14,7 @@ ruleset location_data{
   }
   global {
     get_location_data = function(key) {
-    	"hi";
+    	ent:myMap{key};
     }
   }
   rule add_location_data{
