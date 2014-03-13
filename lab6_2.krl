@@ -26,10 +26,10 @@ ruleset examine_location{
   			</br>
   			<h1>Foursquare</h1>
   			<div id="info">
-  				#{venue}
-  				#{shout}
-  				#{city}
-  				#{time}
+  				#{venue}</br>
+  				#{shout}</br>
+  				#{city}</br>
+  				#{time}</br>
   			</div>
   			>>;
   	}
