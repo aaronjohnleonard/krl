@@ -6,7 +6,7 @@ ruleset examine_location{
     	>>
     	author "Aaron"
     	logging off
-    	use module b505201x6 aliad location_data
+    	use module b505201x6 alias location_data
     	use module a169x701 alias CloudRain
     	use module a41x186  alias SquareTag
   	}
