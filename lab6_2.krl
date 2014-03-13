@@ -24,7 +24,7 @@ ruleset examine_location{
   		time = info{"time"};
   		html = <<
   			</br>
-  			<h1>Foursquare</h1>
+  			<h1>Foursquares</h1>
   			<div id="info">
   				#{venue}</br>
   				#{shout}</br>
