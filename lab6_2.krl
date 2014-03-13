@@ -25,8 +25,6 @@ ruleset examine_location{
   		html = <<
   			</br>
   			<h1>Foursquares</h1>
-  			<div id="info">
-  			</div>
   			>>;
   	}
   	{
