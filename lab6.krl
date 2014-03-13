@@ -20,12 +20,12 @@ ruleset location_data{
   rule add_location_data{
   select when pds new_location_data
   pre{
-  	thisMap = ent:map;
+  	thisMap = ent:myMap;
   	newMap = { event:attr("key") : event:attr("value") }	;
   	thisMap = thisMap.put(newMap);
   }
   always{
-  	set ent:map thisMap;
+  	set ent:myMap thisMap;
   }
   }
 }
