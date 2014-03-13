@@ -19,13 +19,7 @@ ruleset location_data{
   }
   rule add_location_data{
   select when pds new_location_data
-  pre{
-  	thisMap = ent:myMap;
-  	newMap = { event:attr("key") : event:attr("value") }	;
-  	thisMap = thisMap.put(newMap);
-  }
   always{
-  	set ent:myMap thisMap;
   	set ent:test "event worked!";
   }
   }
