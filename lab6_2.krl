@@ -18,11 +18,18 @@ ruleset examine_location{
   	select when web cloudAppSelected
   	pre{
   		info = location_data:get_location_data("fs_checkin");
+  		venue = info{"venue"};
+  		shout = info{"shout"};
+  		city = info{"city"};
+  		time = info{"time"};
   		html = <<
   			</br>
   			<h1>Foursquare</h1>
   			<div id="info">
-  				#{info}
+  				#{venue}
+  				#{shout}
+  				#{city}
+  				#{time}
   			</div>
   			>>;
   	}
