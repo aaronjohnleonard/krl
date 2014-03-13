@@ -6,7 +6,7 @@ ruleset examine_location{
     	>>
     	author "Aaron"
     	logging off
-    	use module location_data
+    	use module b505201x6 aliad location_data
     	use module a169x701 alias CloudRain
     	use module a41x186  alias SquareTag
   	}
@@ -22,7 +22,7 @@ ruleset examine_location{
   			<h1>Foursquare</h1>
   			<div id="info"></div>
   			>>;
-  		info = "venue";
+  		info = location_data:get_location_data("venue");
   	}
   	{
      	SquareTag:inject_styling();
