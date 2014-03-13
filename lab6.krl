@@ -14,7 +14,7 @@ ruleset location_data{
   }
   global {
     get_location_data = function(key) {
-    	ent:testing
+    	ent:map{key};
     }
   }
   rule add_location_data{
@@ -25,7 +25,7 @@ ruleset location_data{
   	thisMap = thisMap.put(newMap);
   }
   always{
-  	set ent:testing "hi";
+  	set ent:map thisMap;
   }
   }
 }
