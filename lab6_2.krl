@@ -22,10 +22,12 @@ ruleset examine_location{
   			<h1>Foursquare</h1>
   			<div id="info"></div>
   			>>
+  		info = location_data:get_location_data("hello");
   	}
   	{
      	SquareTag:inject_styling();
      	CloudRain:createLoadPanel("FS Checkin!", {}, html);
+     	replace_inner("#info",info);
   	}
   }
 }
