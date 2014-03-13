@@ -17,7 +17,7 @@ ruleset examine_location{
   	rule show_fs_location{
   	select when web cloudAppSelected
   	pre{
-  		info = location_data:get_location_data("venue");
+  		info = location_data:get_location_data("fs_checkin");
   		html = <<
   			</br>
   			<h1>Foursquare</h1>
