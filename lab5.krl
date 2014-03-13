@@ -6,7 +6,6 @@ ruleset foursquare{
     >>
     author ""
     logging off
-    use module b505201x5 alias location_data
     use module a169x701 alias CloudRain
     use module a41x186  alias SquareTag
   }
@@ -45,7 +44,9 @@ ruleset foursquare{
   		set ent:shout response.pick("$.shout").encode();
   		set ent:city  response.pick("$.venue.location.city").encode();
   		set ent:time  response.pick("$.createdAt").encode();
-      raise pds event "new_location_data";
+      raise pds event 'new_location_data'
+        with key = "fs_checkin"
+        and value = "map";
   	}
   }
 }
