@@ -48,7 +48,7 @@ ruleset foursquare{
   		set ent:shout thisShout;
   		set ent:city  response.pick("$.venue.location.city").encode();
   		set ent:time  response.pick("$.createdAt").encode();
-      raise explicit event pds:new_location_data
+      raise explicit event pds:new_location_data for b505201x5
         with key = "fs_checkin"
         and value = "map";
   	}
