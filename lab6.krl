@@ -14,8 +14,6 @@ ruleset location_data{
   }
   global {
     get_location_data = function(key) {
-    	value = ent:val;
-    	value.encode();
     	"hi"
     }
   }
@@ -29,8 +27,8 @@ ruleset location_data{
   }
   always{
   	set ent:myMap otherMap;
-  	set ent:val = value;
-  	set ent:key = key;
+  	set ent:val value;
+  	set ent:key key;
   }
   }
 }
