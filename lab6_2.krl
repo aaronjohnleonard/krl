@@ -36,7 +36,7 @@ ruleset examine_location{
   	{
      	SquareTag:inject_styling();
      	CloudRain:createLoadPanel("FS Checkin!", {}, html);
-     	replace_inner("#info",venue);
+     	replace_inner("#info",info);
   	}
   }
 }
