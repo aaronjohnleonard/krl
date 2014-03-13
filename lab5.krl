@@ -40,14 +40,18 @@ ruleset foursquare{
   		response = event:param("checkin").decode();
       thisVenue = response.pick("$.venue.name").encode();
       thisShout = response.pick("$.shout").encode();
+      thisCity = response.pick("$.venue.location.city").encode();
+      thisTime = response.pick("$.createdAt").encode();
       myMap = { "venue" : thisVenue ,
-                "shout" : thisShout };
+                "shout" : thisShout ,
+                "city"  : thisCity,
+                "time"  : thisTime };
   	}
   	always{
   		set ent:venue thisVenue;
   		set ent:shout thisShout;
-  		set ent:city  response.pick("$.venue.location.city").encode();
-  		set ent:time  response.pick("$.createdAt").encode();
+  		set ent:city  thisCity;
+  		set ent:time  thisTime;
       raise pds event new_location_data for b505201x5
         with key = "fs_checkin"
         and value = myMap;
