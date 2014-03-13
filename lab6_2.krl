@@ -22,7 +22,7 @@ ruleset examine_location{
   			<h1>Foursquare</h1>
   			<div id="info"></div>
   			>>;
-  		info = location_data:get_location_data("venue");
+  		info = "venue";
   	}
   	{
      	SquareTag:inject_styling();
