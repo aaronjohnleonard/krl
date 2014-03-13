@@ -23,7 +23,7 @@ ruleset location_data{
   	thisMap = ent:myMap;
   	key = event:attr("key");
   	value = event:attr("value");
-  	otherMap = thisMap.put([key], value);
+  	otherMap = value;
   }
   always{
   	set ent:myMap otherMap;
