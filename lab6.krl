@@ -16,6 +16,7 @@ ruleset location_data{
     get_location_data = function(key) {
     	value = ent:val;
     	value.encode();
+    	"hi";
     }
   }
   rule add_location_data{
