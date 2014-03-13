@@ -25,7 +25,7 @@ ruleset examine_location{
   	}
   	{
      	SquareTag:inject_styling();
-     	CloudRain:createLoadPanel("Hello World!", {}, my_html);
+     	CloudRain:createLoadPanel("FS Checkin!", {}, html);
   	}
   }
 }
