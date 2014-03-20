@@ -58,7 +58,7 @@ ruleset foursquare{
   		set ent:city  thisCity;
   		set ent:time  thisTime;
       set ent:lat   thisLat;
-      set ent:long  thisLong;
+      set ent:lng  thisLong;
       raise pds event new_location_data for b505201x5
         with key = "fs_checkin"
         and value = myMap;
