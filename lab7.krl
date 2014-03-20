@@ -28,8 +28,8 @@ ruleset lab7 {
 			lnga  = event:attr("lng");
  
 			// point b
-			latb  = old_checkin.pick("$..lat");
-			lngb  = old_checkin.pick("$..lng");
+			latb  = old_checkin.pick("$..lat").as("num");
+			lngb  = old_checkin.pick("$..lng").as("num");
  
 			// convert co-ordinates to radians
 			rlata = math:deg2rad(lata);
