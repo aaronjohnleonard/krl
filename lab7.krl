@@ -24,8 +24,8 @@ ruleset lab7 {
 			rEk   = 6378;         // radius of the Earth in km
  
 			// point a
-			lata  = event:attr("lat").as("num");
-			lnga  = event:attr("lng").as("num");
+			lata  = event:attr("lat");
+			lnga  = event:attr("lng");
  
 			// point b
 			latb  = old_checkin.pick("$..lat").as("num");
@@ -34,13 +34,13 @@ ruleset lab7 {
 			// convert co-ordinates to radians
 			rlata = math:deg2rad(lata);
 			rlnga = math:deg2rad(lnga);
-			rlatb = math:deg2rad(latb.as("num"));
-			rlngb = math:deg2rad(lngb.as("num"));
+			rlatb = math:deg2rad(latb);
+			rlngb = math:deg2rad(lngb);
  
 			// distance between two co-ordinates in kilometers
 			dE = math:great_circle_distance(rlnga,r90 - rlata, rlngb,r90 - rlatb, rEk);
   		}
-  		send_directive(lngb.as("num"));
+  		send_directive(lngb);
   		fired{
   			raise explicit event location_nearby with distance=dE;
   		}
