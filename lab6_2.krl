@@ -22,6 +22,8 @@ ruleset examine_location{
   		shout = info{"shout"};
   		city = info{"city"};
   		time = info{"time"};
+      lat = info("lat");
+      long = info("long");
   		html = <<
   			</br>
   			<h1>Foursquare</h1>
@@ -30,6 +32,8 @@ ruleset examine_location{
   				#{shout}</br>
   				#{city}</br>
   				#{time}</br>
+          #{lat}</br>
+          #{long}</br>
   			</div>
   			>>;
   	}

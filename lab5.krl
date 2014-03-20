@@ -41,11 +41,15 @@ ruleset foursquare{
       thisVenue = response.pick("$.venue.name").encode();
       thisShout = response.pick("$.shout").encode();
       thisCity = response.pick("$.venue.location.city").encode();
+      thisLat = response.pick("$.venue.location.lat").encode();
+      thisLong = response.pick("$.venue.location.lng").encode();
       thisTime = response.pick("$.createdAt").encode();
       myMap = { "venue" : thisVenue ,
                 "shout" : thisShout ,
                 "city"  : thisCity,
-                "time"  : thisTime };
+                "time"  : thisTime,
+                "lat"   : thisLat,
+                "long"  : thisLong, };
   	}
     send_directive(thisVenue) with key = "checkin" and value = thisVenue;
   	always{
@@ -53,6 +57,8 @@ ruleset foursquare{
   		set ent:shout thisShout;
   		set ent:city  thisCity;
   		set ent:time  thisTime;
+      set ent:lat   thisLat;
+      set ent:long  thisLong;
       raise pds event new_location_data for b505201x5
         with key = "fs_checkin"
         and value = myMap;
