@@ -40,9 +40,14 @@ ruleset lab7 {
 			// distance between two co-ordinates in kilometers
 			dE = math:great_circle_distance(rlnga,r90 - rlata, rlngb,r90 - rlatb, rEk);
   		}
-  		send_directives(event:attr("lat"));
-  		always{
-  			raise explicit event location_nearby for b505201x8 with distance=dE if dE < 5;
+  		if distance < 20 then{
+  			send_directives(event:attr("lat"));
+  		}
+  		fired{
+  			raise explicit event location_nearby with distance=dE;
+  		}
+  		else{
+  			raise explicit event location_far with distance=dE;
   		}
   	}
 }
