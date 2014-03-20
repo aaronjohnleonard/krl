@@ -28,7 +28,7 @@ ruleset lab7 {
 			lnga  = event:attr("lng");
  
 			// point b
-			latb  = old_checkin.pick("$..lat");
+			latb  = old_checkin.pick("$..lat").as("num");
 			lngb  = old_checkin.pick("$..lng");
  
 			// convert co-ordinates to radians
