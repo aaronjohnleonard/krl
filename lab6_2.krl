@@ -26,7 +26,7 @@ ruleset examine_location{
       long = info("long");
   		html = <<
   			</br>
-  			<h1>Foursquare</h1>
+  			<h1>Foursquare App</h1>
   			<div id="info">
   				#{venue}</br>
   				#{shout}</br>
