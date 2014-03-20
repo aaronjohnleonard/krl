@@ -34,13 +34,13 @@ ruleset lab7 {
 			// convert co-ordinates to radians
 			rlata = math:deg2rad(lata);
 			rlnga = math:deg2rad(lnga);
-			rlatb = math:deg2rad(latb);
-			rlngb = math:deg2rad(lngb);
+			rlatb = math:deg2rad(latb.as("num"));
+			rlngb = math:deg2rad(lngb.as("num"));
  
 			// distance between two co-ordinates in kilometers
 			dE = math:great_circle_distance(rlnga,r90 - rlata, rlngb,r90 - rlatb, rEk);
   		}
-  		send_directive(latb - lngb);
+  		send_directive(rlatb);
   		fired{
   			raise explicit event location_nearby with distance=dE;
   		}
