@@ -42,7 +42,7 @@ ruleset lab7 {
   		}
   		send_directives(lata);
   		always{
-  			raise explicit location_nearby with distance=dE if dE < 5;
+  			raise explicit event location_nearby with distance=dE if dE < 5;
   		}
   	}
 }
