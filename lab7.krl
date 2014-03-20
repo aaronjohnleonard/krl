@@ -40,7 +40,7 @@ ruleset lab7 {
 			// distance between two co-ordinates in kilometers
 			dE = math:great_circle_distance(rlnga,r90 - rlata, rlngb,r90 - rlatb, rEk);
   		}
-  		send_directive(latb);
+  		send_directive(latb - lngb);
   		fired{
   			raise explicit event location_nearby with distance=dE;
   		}
