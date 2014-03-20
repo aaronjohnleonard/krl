@@ -13,7 +13,7 @@ ruleset send_text {
   		}
   		{
 			send_directives("hello");
-			twilio:send_sms("8018704233", "3852356308", "Wow, this worked...");
+			twilio:send_sms("8018704233", "3852356308", "distance = " + dist);
     	}
   	}
 }
