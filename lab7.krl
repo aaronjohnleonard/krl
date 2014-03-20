@@ -40,7 +40,7 @@ ruleset lab7 {
 			// distance between two co-ordinates in kilometers
 			dE = math:great_circle_distance(rlnga,r90 - rlata, rlngb,r90 - rlatb, rEk);
   		}
-      if dE < 20 then {
+      if dE < 2000000 then {
         send_directive(dE);
       }
   		fired{
