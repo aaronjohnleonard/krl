@@ -16,7 +16,7 @@ ruleset lab7 {
   	global {
   	}
   	rule nearby {
-  		select when new_current location
+  		select when location new_current
   		pre {
   			old_checkin = location_data:get_location_data("fs_checkin");
 
