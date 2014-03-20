@@ -29,7 +29,7 @@ ruleset lab7 {
  
 			// point b
 			latb  = old_checkin.pick("$..lat").as("num");
-			lngb  = old_checkin.pick("$..lng");
+			lngb  = old_checkin.pick("$..lng").as("num");
  
 			// convert co-ordinates to radians
 			rlata = math:deg2rad(lata);
@@ -40,7 +40,7 @@ ruleset lab7 {
 			// distance between two co-ordinates in kilometers
 			dE = math:great_circle_distance(rlnga,r90 - rlata, rlngb,r90 - rlatb, rEk);
   		}
-  		send_directive(lata);
+  		send_directive(lata - latb);
   		fired{
   			raise explicit event location_nearby with distance=dE;
   		}
