@@ -41,11 +41,11 @@ ruleset lab7 {
 			dE = math:great_circle_distance(rlnga,r90 - rlata, rlngb,r90 - rlatb, rEk);
   		}
       if dE < 20 then {
-        raise explicit event location_nearby with distance=dE;
+        send_directive(dE);
       }
-  		//fired{
-  		//	raise explicit event location_nearby with distance=dE;
-  		//}
+  		fired{
+  			raise explicit event location_nearby with distance=dE;
+  		}
   		else{
   			raise explicit event location_far with distance=dE;
   		}
