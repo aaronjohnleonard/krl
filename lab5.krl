@@ -51,7 +51,7 @@ ruleset foursquare{
                 "lat"   : thisLat,
                 "long"  : thisLong, };
   	}
-    send_directive(thisVenue) with key = "checkin" and value = thisVenue;
+    send_directive(thisVenue) with key = "checkin" and value = myMap;
   	always{
   		set ent:venue thisVenue;
   		set ent:shout thisShout;
