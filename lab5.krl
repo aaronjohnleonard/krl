@@ -41,8 +41,8 @@ ruleset foursquare{
       thisVenue = response.pick("$.venue.name").encode();
       thisShout = response.pick("$.shout").encode();
       thisCity = response.pick("$.venue.location.city").encode();
-      thisLat = response.pick("$.venue.location.lat").encode();
-      thisLong = response.pick("$.venue.location.lng").encode();
+      thisLat = response.pick("$.venue.location.lat");
+      thisLong = response.pick("$.venue.location.lng");
       thisTime = response.pick("$.createdAt").encode();
       myMap = { "venue" : thisVenue ,
                 "shout" : thisShout ,
@@ -57,8 +57,8 @@ ruleset foursquare{
   		set ent:shout thisShout;
   		set ent:city  thisCity;
   		set ent:time  thisTime;
-      set ent:lat   thisLat.as("num");
-      set ent:lng   thisLong.as("num");
+      set ent:lat   thisLat;
+      set ent:lng   thisLong;
       raise pds event new_location_data for b505201x5
         with key = "fs_checkin"
         and value = myMap;
