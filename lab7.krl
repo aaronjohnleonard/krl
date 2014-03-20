@@ -24,8 +24,8 @@ ruleset lab7 {
 			rEk   = 6378;         // radius of the Earth in km
  
 			// point a
-			lata  = event:attr("lat");
-			lnga  = event:attr("lng");
+			lata  = event:attr("lat").as("num");
+			lnga  = event:attr("lng").as("num");
  
 			// point b
 			latb  = old_checkin.pick("$..lat").as("num");
