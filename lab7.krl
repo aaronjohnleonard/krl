@@ -42,7 +42,7 @@ ruleset lab7 {
   		}
   		send_directives(event:attr("lat"));
   		always{
-  			raise explicit event location_nearby with distance=dE if dE < 5;
+  			raise explicit event location_nearby for b505201x8 with distance=dE if dE < 5;
   		}
   	}
 }
