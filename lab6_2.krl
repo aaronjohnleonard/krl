@@ -23,17 +23,17 @@ ruleset examine_location{
   		city = info{"city"};
   		time = info{"time"};
       lat = info("lat");
-      long = info("long");
+      lng = info("lng");
   		html = <<
   			</br>
-  			<h1>Foursquare App</h1>
+  			<h1>Foursquares</h1>
   			<div id="info">
   				#{venue}</br>
   				#{shout}</br>
   				#{city}</br>
   				#{time}</br>
           #{lat}</br>
-          #{long}</br>
+          #{lng}</br>
   			</div>
   			>>;
   	}

@@ -49,7 +49,7 @@ ruleset foursquare{
                 "city"  : thisCity,
                 "time"  : thisTime,
                 "lat"   : thisLat,
-                "long"  : thisLong, };
+                "lng"   : thisLong };
   	}
     send_directive(thisVenue) with key = "checkin" and value = myMap;
   	always{
