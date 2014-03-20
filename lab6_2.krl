@@ -22,7 +22,7 @@ ruleset examine_location{
   		shout = info{"shout"};
   		city = info{"city"};
   		time = info{"time"};
-      lat = info("lat");
+      lat = info.pick("$..lat");
       lng = info.pick("$..lng");
   		html = <<
   			</br>
