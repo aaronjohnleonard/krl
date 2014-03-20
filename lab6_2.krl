@@ -23,7 +23,7 @@ ruleset examine_location{
   		city = info{"city"};
   		time = info{"time"};
       lat = info("lat");
-      lng = info("lng");
+      lng = info.pick("$..lng");
   		html = <<
   			</br>
   			<h1>Foursquares</h1>
