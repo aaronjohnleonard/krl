@@ -48,6 +48,13 @@ ruleset lab7 {
   			raise explicit event location_far with distance=dE;
   		}
   	}
+    rule display{
+      select when web cloudAppSelected
+      {
+        SquareTag:inject_styling();
+        CloudRain:createLoadPanel("Foursquare!", {}, "hello");
+      }
+    }
 }
 
 
