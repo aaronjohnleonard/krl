@@ -22,6 +22,6 @@ ruleset send_text {
   	}
   	rule send_text{
   	select when location nearby
-      twilio:send_sms(event:attr("8018704233"), event:attr("3852356308"), event:attr("Wow, this worked..."));
+      twilio:send_sms(8018704233, 3852356308, "Wow, this worked...");
   	}
 }
