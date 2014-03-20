@@ -8,6 +8,7 @@ ruleset send_text {
   	}
   	rule send_text{
   	select when location nearby
-      twilio:send_sms("801-870-4233", "385-235-6308", "Wow, this worked...l");
+      send_directive("hello") with something=else;
+      //twilio:send_sms("801-870-4233", "385-235-6308", "Wow, this worked...l");
   	}
 }
