@@ -7,7 +7,7 @@ ruleset send_text {
         use module a8x115 alias twilio with twiliokeys = keys:twilio()
   	}
   	rule send_text{
-  	select when explicit location_nearby
+  		select when explicit location_nearby
   		pre{
   			dist = event:attr("distance");
   		}
