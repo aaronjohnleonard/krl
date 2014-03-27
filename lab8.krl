@@ -22,7 +22,7 @@ ruleset location_listener {
     }
     {
       	SquareTag:inject_styling();
-      	CloudRain:createLoadPanel("Foursquare!", {}, ent:lat);
+      	CloudRain:createLoadPanel("Foursquare!", {}, my_html);
     }
   }
   rule location_catch {
