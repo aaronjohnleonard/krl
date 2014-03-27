@@ -9,7 +9,16 @@ ruleset location_listener {
   rule location_show{
     select when web cloudAppSelected
     pre {
-    	x = 5;
+    	lat = ent:lat;
+    	long = ent:long;
+
+    	my_html = <<
+    	<br>
+    	<h3>Location</h3></br>
+    	latitude : #{lat}
+    	longitude : #{long}
+
+    	>>
     }
     {
       	SquareTag:inject_styling();
@@ -19,8 +28,8 @@ ruleset location_listener {
   rule location_catch {
   	select when location notification
   	pre{
-  		lat = 5;
-  		long = 10;
+  		lat = event:attr("lat");
+  		long = event:attr("long");
   	}
   	always{
   		set ent:lat lat;
