@@ -11,10 +11,12 @@ ruleset location_listener {
     pre {
     	lat = ent:lat;
     	long = ent:long;
+    	venue = ent:venue;
 
     	my_html = <<
     	<br>
     	<h3>Location</h3>
+    	venue: #{venue}</br>
     	latitude : #{lat} </br>
     	longitude : #{long}
 
@@ -30,10 +32,12 @@ ruleset location_listener {
   	pre{
   		lat = event:attr("lat");
   		long = event:attr("long");
+  		venue = event:attr("venue");
   	}
   	always{
   		set ent:lat lat;
   		set ent:long long;
+  		set ent:venue venue;
   	}
   }
 }
