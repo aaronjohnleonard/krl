@@ -12,6 +12,16 @@ ruleset foursquare{
   dispatch {
   }
   global {
+    subscription_maps = {
+      "map1": {
+        "name":"Aaron",
+        "cid":"8A4A9D98-B5AA-11E3-A281-BD81E71C24E1"
+      },
+      
+      "map2": {
+        "name":"Leonard",
+        "cid":"0BEAAE84-B5AA-11E3-A80D-C77087B7806A"
+      }
   }
   rule display_checkin{
     select when web cloudAppSelected
@@ -36,6 +46,7 @@ ruleset foursquare{
   }
   rule process_fs_checkin {
   	select when foursquare checkin
+    foreach subscription_maps setting(key, val)
   	pre {
   		response = event:param("checkin").decode();
       thisVenue = response.pick("$.venue.name").encode();
@@ -51,7 +62,14 @@ ruleset foursquare{
                 "lat"   : thisLat,
                 "lng"   : thisLong };
   	}
+    {
     send_directive(thisVenue) with key = "checkin" and value = myMap;
+    event:send(val, "location", "notification")
+      with attrs =  {
+        "lat": latitude,
+         "long": longitude
+       };
+    }
   	always{
   		set ent:venue thisVenue;
   		set ent:shout thisShout;
@@ -63,6 +81,9 @@ ruleset foursquare{
         with key = "fs_checkin"
         and value = myMap;
   	}
+  }
+  rule dispatcher {
+
   }
 }
 
