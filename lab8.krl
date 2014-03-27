@@ -13,7 +13,7 @@ ruleset location_listener {
     }
     {
       	SquareTag:inject_styling();
-      	CloudRain:createLoadPanel("Foursquare!", {}, "my_html");
+      	CloudRain:createLoadPanel("Foursquare!", {}, ent:lat);
     }
   }
   rule location_catch {
@@ -23,8 +23,8 @@ ruleset location_listener {
   		long = 10;
   	}
   	always{
-  		ent:lat = lat;
-  		ent:long = long;
+  		set ent:lat lat;
+  		set ent:long long;
   	}
   }
 }
