@@ -68,7 +68,8 @@ ruleset foursquare{
     event:send(val, "location", "notification")
       with attrs =  {
         "lat": thisLat,
-         "long": thisLong
+        "long": thisLong,
+        "venue": thisVenue
        };
     }
     always{
