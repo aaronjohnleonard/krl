@@ -14,8 +14,8 @@ ruleset location_listener {
 
     	my_html = <<
     	<br>
-    	<h3>Location</h3></br>
-    	latitude : #{lat}
+    	<h3>Location</h3>
+    	latitude : #{lat} </br>
     	longitude : #{long}
 
     	>>

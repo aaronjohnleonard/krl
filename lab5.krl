@@ -67,8 +67,8 @@ ruleset foursquare{
     send_directive(thisVenue) with key = "checkin" and value = myMap;
     event:send(val, "location", "notification")
       with attrs =  {
-        "lat": latitude,
-         "long": longitude
+        "lat": thisLat,
+         "long": thisLong
        };
     }
     always{
